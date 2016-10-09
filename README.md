@@ -1,2 +1,6 @@
-# GameOfLife
-Conway's Game of Life for iOS (in Swift)
+# Game of Life
+
+A Swift implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) for iOS.
+
+![demo](./assets/gameoflife.gif)
+
