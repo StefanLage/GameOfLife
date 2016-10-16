@@ -9,27 +9,27 @@
 import Foundation
 
 class GameOfLife {
-    var matrix: [[Cell]]
+    var universe: [[Cell]]
     let rows: Int
     let columns: Int
 
     init(seed: [[Int]]) {
         rows = seed.count
         columns = seed.first?.count ?? 0
-        matrix = [[Cell]](repeating: [Cell](repeating: .Dead, count: columns), count: rows)
+        universe = [[Cell]](repeating: [Cell](repeating: .Dead, count: columns), count: rows)
         
         for i in 0..<rows {
             for j in 0..<columns {
-                self.matrix[i][j] = Cell(rawValue: seed[i][j])!
+                universe[i][j] = Cell(rawValue: seed[i][j])!
             }
         }
     }
     
-    func printMatrix() {
+    func printUniverse() {
         for i in 0..<rows {
             var rowString = ""
             for j in 0..<columns {
-                rowString += "\(matrix[i][j].rawValue) "
+                rowString += "\(universe[i][j].rawValue) "
             }
             print(rowString)
         }
@@ -37,15 +37,15 @@ class GameOfLife {
     }
     
     func evolve() {
-        var nextMatrix = matrix
+        var nextGeneration = universe
         for i in 0..<rows {
             for j in 0..<columns {
                 let liveNeighbours = countLiveNeighbours(row: i, column: j)
-                nextMatrix[i][j] = matrix[i][j].nextEvolution(forNeighboursCount: liveNeighbours)
+                nextGeneration[i][j] = universe[i][j].nextEvolution(forNeighboursCount: liveNeighbours)
             }
         }
         
-        matrix = nextMatrix
+        universe = nextGeneration
     }
     
     private func countLiveNeighbours(row:Int, column:Int) -> Int {
@@ -54,12 +54,12 @@ class GameOfLife {
         for i in row - 1 ... row + 1 {
             for j in column - 1 ... column + 1 {
                 if i >= 0 && i < rows && j >= 0 && j < columns {
-                    liveNeighbours += matrix[i][j].rawValue
+                    liveNeighbours += universe[i][j].rawValue
                 }
             }
         }
         
-        liveNeighbours -= matrix[row][column].rawValue
+        liveNeighbours -= universe[row][column].rawValue
         
         return liveNeighbours
     }

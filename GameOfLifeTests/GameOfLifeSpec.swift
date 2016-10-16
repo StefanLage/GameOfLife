@@ -15,28 +15,47 @@ class GameOfLifeSpec: QuickSpec {
         
         describe(".initWithSeed") {
             context("when the seed is empty") {
-                it("initialises an empty matrix") {
+                it("initialises an empty universe") {
                     let game = GameOfLife(seed:[])
-                    expect(game.matrix).to(beEmpty())
+                    expect(game.universe).to(beEmpty())
                 }
             }
             
-            context("when the seed is valid") {
-                it("initialises an equivalent matrix") {
-                    let game = GameOfLife(seed:[[0, 1],
-                                                [1, 0]])
-
-                    expect(game.matrix[0][0]).to(equal(Cell.Dead))
-                    expect(game.matrix[0][1]).to(equal(Cell.Live))
-                    expect(game.matrix[1][0]).to(equal(Cell.Live))
-                    expect(game.matrix[1][1]).to(equal(Cell.Dead))
-                }
+            it("initialises an equivalent universe") {
+                let game = GameOfLife(seed:[[0, 1],
+                                            [1, 0]])
+                
+                expect(game.universe[0][0]).to(equal(Cell.Dead))
+                expect(game.universe[0][1]).to(equal(Cell.Live))
+                expect(game.universe[1][0]).to(equal(Cell.Live))
+                expect(game.universe[1][1]).to(equal(Cell.Dead))
             }
         }
         
-        describe(".evolution") {
-            it("evolved the matrix to the next generation") {
+        describe(".evolve") {
+            context("when the universe is empty") {
+                it("evolves to an empty universe") {
+                    let game = GameOfLife(seed:[])
+                    game.evolve()
+                    expect(game.universe).to(beEmpty())
+                }
+            }
+            
+            it("evolves the universe to the next generation") {
+                let game = GameOfLife(seed:[[0, 0, 0],
+                                            [1, 1, 1],
+                                            [0, 0, 0]])
+                game.evolve()
                 
+                expect(game.universe[0][0]).to(equal(Cell.Dead))
+                expect(game.universe[0][1]).to(equal(Cell.Live))
+                expect(game.universe[0][2]).to(equal(Cell.Dead))
+                expect(game.universe[1][0]).to(equal(Cell.Dead))
+                expect(game.universe[1][1]).to(equal(Cell.Live))
+                expect(game.universe[1][2]).to(equal(Cell.Dead))
+                expect(game.universe[2][0]).to(equal(Cell.Dead))
+                expect(game.universe[2][1]).to(equal(Cell.Live))
+                expect(game.universe[2][2]).to(equal(Cell.Dead))
             }
         }
     }

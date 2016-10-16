@@ -25,6 +25,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assertDependencies()
+        print("New game initialised:")
+        game.printUniverse()
         
         collectionView.reloadData()
         Timer.scheduledTimer(timeInterval: 0.5,
@@ -37,6 +39,9 @@ class DetailViewController: UIViewController {
     func update() {
         game.evolve()
         collectionView.reloadData()
+        
+        print("Universe evolved:")
+        game.printUniverse()
     }
 }
 
@@ -57,7 +62,7 @@ extension DetailViewController: UICollectionViewDataSource {
     private func cellForIndexPathRow(row indexPathRow: Int) -> Cell {
         let row = indexPathRow / game.columns
         let column = indexPathRow % game.columns
-        return game.matrix[row][column]
+        return game.universe[row][column]
     }
 }
 
