@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D401072D65FCE34D5B02421 /* Pods_GameOfLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301094516493F3AB70E1DDA2 /* Pods_GameOfLife.framework */; };
 		131477FE385D8327B5D55984 /* Pods_GameOfLifeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C152468A14B446FEBF7AC121 /* Pods_GameOfLifeTests.framework */; };
+		340D30231DB2A87B00C98210 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340D30221DB2A87B00C98210 /* Loader.swift */; };
+		340D30251DB2B5E500C98210 /* Seeds in Resources */ = {isa = PBXBuildFile; fileRef = 340D30241DB2B5E500C98210 /* Seeds */; };
 		347543C01DA91A160044C081 /* GameOfLifeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347543BF1DA91A160044C081 /* GameOfLifeSpec.swift */; };
 		347543CB1DA91A160044C081 /* GameOfLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347543CA1DA91A160044C081 /* GameOfLifeUITests.swift */; };
 		347543E81DA91AA60044C081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347543DF1DA91AA60044C081 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		301094516493F3AB70E1DDA2 /* Pods_GameOfLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameOfLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		340D30221DB2A87B00C98210 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		340D30241DB2B5E500C98210 /* Seeds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Seeds; sourceTree = "<group>"; };
 		347543A51DA91A160044C081 /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347543BB1DA91A160044C081 /* GameOfLifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfLifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		347543BF1DA91A160044C081 /* GameOfLifeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeSpec.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 			children = (
 				347543F21DA91B520044C081 /* GameOfLife.swift */,
 				347543F41DA91B7B0044C081 /* Cell.swift */,
+				340D30221DB2A87B00C98210 /* Loader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 		347543DE1DA91AA60044C081 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				340D30241DB2B5E500C98210 /* Seeds */,
 				347543DF1DA91AA60044C081 /* Assets.xcassets */,
 				347543E41DA91AA60044C081 /* Info.plist */,
 			);
@@ -343,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F337821DA95FF300A6605B /* Main.storyboard in Resources */,
+				340D30251DB2B5E500C98210 /* Seeds in Resources */,
 				347543E81DA91AA60044C081 /* Assets.xcassets in Resources */,
 				34F337811DA95FF300A6605B /* LaunchScreen.storyboard in Resources */,
 			);
@@ -509,6 +516,7 @@
 			files = (
 				34F3377C1DA95FF300A6605B /* AppDelegate.swift in Sources */,
 				34F3377D1DA95FF300A6605B /* DetailViewController.swift in Sources */,
+				340D30231DB2A87B00C98210 /* Loader.swift in Sources */,
 				34F337801DA95FF300A6605B /* Cell.swift in Sources */,
 				34F3377F1DA95FF300A6605B /* GameOfLife.swift in Sources */,
 				34F3377E1DA95FF300A6605B /* MasterViewController.swift in Sources */,

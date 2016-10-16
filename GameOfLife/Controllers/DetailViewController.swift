@@ -8,25 +8,30 @@
 
 import UIKit
 
+protocol Injectable {
+    associatedtype T
+    func inject(_: T)
+    func assertDependencies()
+}
+
 fileprivate let reuseIdentifier = "GameOfLifeCell"
 
 class DetailViewController: UIViewController {
+
+    fileprivate var game: GameOfLife!
     
-    lazy var game: GameOfLife = {
-        return GameOfLife(seed: [[0, 0, 0, 0, 0],
-                                 [0, 0, 0, 0, 0],
-                                 [0, 1, 1, 1, 0],
-                                 [0, 0, 0, 0, 0],
-                                 [0, 0, 0, 0, 0]])
-        
-    }()
-    
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        assertDependencies()
+        
         collectionView.reloadData()
-        Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.update), userInfo: nil, repeats: true);
+        Timer.scheduledTimer(timeInterval: 0.5,
+                             target: self,
+                             selector: #selector(self.update),
+                             userInfo: nil,
+                             repeats: true);
     }
     
     func update() {
@@ -42,15 +47,17 @@ extension DetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let row = indexPath.row / game.columns
-        let column = indexPath.row % game.columns
-        let cell = game.matrix[row][column]
-        
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                                 for: indexPath)
+        let cell = self.cellForIndexPathRow(row: indexPath.row)
         collectionCell.backgroundColor = (cell == .Live ? UIColor.black : UIColor.white)
-        // Configure the cell
         return collectionCell
+    }
+    
+    private func cellForIndexPathRow(row indexPathRow: Int) -> Cell {
+        let row = indexPathRow / game.columns
+        let column = indexPathRow % game.columns
+        return game.matrix[row][column]
     }
 }
 
@@ -59,12 +66,28 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left
             + flowLayout.sectionInset.right
             + (flowLayout.minimumInteritemSpacing * CGFloat(game.columns - 1))
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(game.columns))
+        
         return CGSize(width: size, height: size)
+    }
+}
+
+extension DetailViewController: Injectable {
+    typealias T = GameOfLife
+    
+    func inject(_ game: T) {
+        self.game = game
+    }
+    
+    func assertDependencies() {
+        if self.game == nil {
+            if let seed = Loader.loadSeeds().first {
+                self.game = GameOfLife(seed: seed.values)
+            }
+        }
     }
 }
