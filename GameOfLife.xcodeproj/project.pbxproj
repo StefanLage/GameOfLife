@@ -303,7 +303,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Edu Caselles";
 				TargetAttributes = {
 					347543A41DA91A160044C081 = {
@@ -687,7 +687,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA70743EC54945B9BC60A8FD /* Pods-GameOfLifeTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GameOfLifeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -702,7 +701,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CFCFB5D6C2C8052EF7B5CBD6 /* Pods-GameOfLifeTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GameOfLifeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -717,7 +715,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6412371777A384B5446366BB /* Pods-GameOfLifeUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = GameOfLifeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecaselles.GameOfLifeUITests;
@@ -731,7 +728,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C86EC7C335F317C159FB28D7 /* Pods-GameOfLifeUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = GameOfLifeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecaselles.GameOfLifeUITests;
