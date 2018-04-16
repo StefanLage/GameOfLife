@@ -9,8 +9,7 @@ cache:
 before_install:
     - gem install xcpretty
 script:
-    - xcodebuild -workspace GameOfLife.xcworkspace -list
-    - xcodebuild test -workspace GameOfLife.xcworkspace -scheme GameOfLife -sdk iphonesimulator -destination "name=iPhone SE" GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
-    - xcodebuild test -workspace GameOfLife.xcworkspace -scheme GameOfLifeObjc -sdk iphonesimulator -destination "name=iPhone SE" GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
+    - set -o pipefail && xcodebuild test -workspace GameOfLife.xcworkspace -scheme GameOfLife -sdk iphonesimulator -destination "name=iPhone SE" GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty && bash <(curl -s https://codecov.io/bash) -J '^GameOfLife$'
+    - set -o pipefail && xcodebuild test -workspace GameOfLife.xcworkspace -scheme GameOfLifeObjc -sdk iphonesimulator -destination "name=iPhone SE" GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
 after_success:
-    - bash <(curl -s https://codecov.io/bash) -J 'GameOfLife'
+    - bash <(curl -s https://codecov.io/bash) -J '^GameOfLife$'
