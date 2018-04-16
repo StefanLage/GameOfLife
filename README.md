@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/ecaselles/GameOfLife.svg?branch=master)](https://travis-ci.org/ecaselles/GameOfLife)
-[![codecov](https://codecov.io/gh/ecaselles/GameOfLife/branch/master/graph/badge.svg)](https://codecov.io/gh/ecaselles/GameOfLife)
+[![Build Status](https://travis-ci.org/StefanLage/GameOfLife.svg?branch=master)](https://travis-ci.org/StefanLage/GameOfLife)
+[![codecov](https://codecov.io/gh/StefanLage/GameOfLife/branch/master/graph/badge.svg)](https://codecov.io/gh/StefanLage/GameOfLife)
 
 # Game of Life
 
