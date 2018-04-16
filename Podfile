@@ -19,3 +19,7 @@ target 'GameOfLife' do
   end
 
 end
+
+target 'GameOfLifeObjc' do
+  use_frameworks!
+end

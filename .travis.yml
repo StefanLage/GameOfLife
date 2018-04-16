@@ -1,5 +1,5 @@
 os: osx
-osx_image: xcode8.1
+osx_image: xcode9.3
 language: objective-c
 rvm:
     2.2.5
@@ -9,6 +9,8 @@ cache:
 before_install:
     - gem install xcpretty
 script:
-    - set -o pipefail && xcodebuild test -workspace GameOfLife.xcworkspace -scheme GameOfLife -sdk iphonesimulator -destination "name=iPhone SE" | xcpretty
+    - xcodebuild -workspace GameOfLife.xcworkspace -list
+    - set -o pipefail && xcodebuild test -workspace GameOfLife.xcworkspace -scheme GameOfLife -sdk iphonesimulator -destination "name=iPhone SE" | xcpretty 
+    - xcodebuild test -workspace GameOfLife.xcworkspace -scheme GameOfLifeObjc -sdk iphonesimulator -destination "name=iPhone SE" | xcpretty
 after_success:
     - bash <(curl -s https://codecov.io/bash) -J 'GameOfLife'
