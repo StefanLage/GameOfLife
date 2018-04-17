@@ -38,6 +38,8 @@ class GameOfLifeUITests: XCTestCase {
         XCTAssertTrue(app.tables.cells.staticTexts["Pulsar"].exists)
         XCTAssertTrue(app.tables.cells.staticTexts["Beacon"].exists)
 
+        let gameOfLifeNavigationBar = app.navigationBars["Game of Life"]
+
         let tablesQuery = app.tables
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Toad"]/*[[".cells.staticTexts[\"Toad\"]",".staticTexts[\"Toad\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
 
@@ -48,6 +50,15 @@ class GameOfLifeUITests: XCTestCase {
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Beacon"]/*[[".cells.staticTexts[\"Beacon\"]",".staticTexts[\"Beacon\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.navigationBars["Beacon"].buttons["Game of Life"].tap()
 
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Blinker"]/*[[".cells.staticTexts[\"Blinker\"]",".staticTexts[\"Blinker\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.navigationBars["Blinker"].buttons["Game of Life"].tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Pulsar"]/*[[".cells.staticTexts[\"Pulsar\"]",".staticTexts[\"Pulsar\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        collectionViewsQuery.children(matching: .cell).element(boundBy: 240).children(matching: .other).element.tap()
+        app.navigationBars["Pulsar"].buttons["Game of Life"].tap()
+
+        gameOfLifeNavigationBar.buttons["Edit"].tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["Delete Toad"]/*[[".cells.buttons[\"Delete Toad\"]",".buttons[\"Delete Toad\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery.buttons["Delete"].tap()
+        gameOfLifeNavigationBar.buttons["Add"].tap()
     }
-    
 }
