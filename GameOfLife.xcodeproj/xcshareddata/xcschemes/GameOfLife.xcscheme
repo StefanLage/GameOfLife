@@ -41,7 +41,31 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "347543A41DA91A160044C081"
+            BuildableName = "GameOfLife.app"
+            BlueprintName = "GameOfLife"
+            ReferencedContainer = "container:GameOfLife.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "347543BA1DA91A160044C081"
+            BuildableName = "GameOfLifeTests.xctest"
+            BlueprintName = "GameOfLifeTests"
+            ReferencedContainer = "container:GameOfLife.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "347543C51DA91A160044C081"
+            BuildableName = "GameOfLifeUITests.xctest"
+            BlueprintName = "GameOfLifeUITests"
+            ReferencedContainer = "container:GameOfLife.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
